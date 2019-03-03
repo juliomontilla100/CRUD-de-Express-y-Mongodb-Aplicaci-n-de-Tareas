@@ -1,0 +1,30 @@
+{
+  "name": "crud-mongodb-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev" : "nodemon src/app.js",
+    "start" : "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juliomontilla100/CRUD-de-Express-y-Mongodb-Aplicaci-n-de-Tareas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juliomontilla100/CRUD-de-Express-y-Mongodb-Aplicaci-n-de-Tareas/issues"
+  },
+  "homepage": "https://github.com/juliomontilla100/CRUD-de-Express-y-Mongodb-Aplicaci-n-de-Tareas#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.16",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
