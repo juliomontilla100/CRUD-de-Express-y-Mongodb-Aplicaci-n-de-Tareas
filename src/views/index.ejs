@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1><%= title%></h1>
+
+        <form action="/add" method="POST">
+            <legend>Agregar una Tarea</legend>
+            <div class="form-group">
+                <input placeholder="Titulo" id="titleInput" name="title" type="text" class="form-control">
+            </div>
+            <div class="form-grup">
+                <textarea placeholder="Descripción" id="descriptionInput" name="description" type="text" class="form-control"></textarea>
+            </div>
+            <button class="btn btn-primary mt-3">Agregar</button>
+        </form>
+        <hr>
+
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Titulo</th>
+                    <th>Descripcion</th>
+                    <th>Operacion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (task of tasks) { %>
+                    <tr>
+                        <td> <%= tasks.indexOf(task) + 1 %>  </td>
+                        <td>
+                            <b><%= task.title %></b>
+                        </td>
+                        <td>
+                            <%= task.description %>
+                        </td>
+                        <td>
+                            <% if(task.status) {%>
+                                <a class="btn btn-warning" style="width: 130px" href="turn/<%= task.id %>"><i class="fas fa-clock"></i> Pendiente</a>
+                            <% }else{%>
+                                <a class="btn btn-success" style="width: 130px" href="turn/<%= task.id %>"><i class="fas fa-check"></i> Lista</a>
+                            <% }%>
+                            <a class="btn btn-danger" href="delete/<%= task.id %>"><i class="fas fa-trash-alt"></i> Borrar</a>
+                        </td>
+                    </tr>
+                
+                <% }%> 
+                
+            </tbody>
+        </table>
+
+    </div>
+    <script>
+        document.getElementById('titleInput').focus()
+    </script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+</body>
+</html>
